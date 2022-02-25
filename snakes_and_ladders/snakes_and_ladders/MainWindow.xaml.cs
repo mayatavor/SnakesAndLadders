@@ -55,6 +55,10 @@ namespace snakes_and_ladders
             this.have_won = false;
             this.is_player_1 = true;
 
+            this.player1_place = 1;
+            this.player2_place = 1;
+
+
         }
         public void StartGame()
         {
@@ -119,6 +123,7 @@ namespace snakes_and_ladders
                     break;
             }
 
+            this.start.Content = new_num.ToString();
 
             while (i < 8 || now + i != new_num) 
             {
@@ -128,6 +133,8 @@ namespace snakes_and_ladders
                 if (i > 6)
                 {
                     time_until_change = 300;
+                   //if (now + i == new_num)
+                        //now -= 4;
                 }
 
                 switch (now + i)
@@ -214,7 +221,6 @@ namespace snakes_and_ladders
             }
 
             this.dice_num_now = new_num;
-            this.start.Content = new_num.ToString();
 
 
         }
@@ -230,10 +236,61 @@ namespace snakes_and_ladders
             return bitmapImage;
         }
 
-        private void start_Click(object sender, RoutedEventArgs e)
+
+        public async Task WalkCharacterAsync(bool player1)
         {
-            this.start.IsEnabled = false;
-            RollDiceAsync();
+            int now = this.player1_place;
+            string starting = "h";
+            string img_id = "h" + this.player1_place.ToString();
+            BitmapImage character = GetImage("Assets/helmet.png");
+            BitmapImage empty = GetImage("Assets/empty.png");
+            if (!player1)
+            {
+                now = this.player2_place;
+                img_id = "b" + this.player2_place.ToString();
+                starting = "b";
+                character = GetImage("Assets/basketball.png");
+            }
+
+            Image n = (Image)this.Images.FindName(img_id);
+            n.Source = empty;
+
+
+            for (int i = now + 1; i < this.dice_num_now + now; i++)
+            {
+                img_id = starting + i.ToString();
+                n = (Image)this.Images.FindName(img_id);
+
+                n.Source = character;
+                await Task.Delay(250);
+                n.Source = empty;
+            }
+
+            n.Source = character;
+
+            if (player1)
+            {
+                if (this.player1_place == 1)
+                    this.player1_place = this.dice_num_now;
+                else
+                    this.player1_place += this.dice_num_now;
+            }
+            else
+            {
+                if (this.player2_place == 1)
+                    this.player2_place = this.dice_num_now;
+                else
+                    this.player2_place += this.dice_num_now;
+            }
+
+        }
+
+
+        private async void start_Click(object sender, RoutedEventArgs e)
+        {
+            //this.start.IsEnabled = false;
+            await RollDiceAsync();
+            await WalkCharacterAsync(true);
         }
     }
 }

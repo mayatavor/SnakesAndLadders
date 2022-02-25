@@ -18,7 +18,7 @@
                 <ImageBrush ImageSource="Assets/board.jpeg"/>
             </StackPanel.Background>
 
-            <Grid>
+            <Grid x:Name="Images">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
