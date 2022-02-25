@@ -5,8 +5,157 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:snakes_and_ladders"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="GameWindow" Height="640" Width="850">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="240"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="Assets/board.jpeg"/>
+            </StackPanel.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="101"/>
+                    <RowDefinition Height="101"/>
+                    <RowDefinition Height="101"/>
+                    <RowDefinition Height="101"/>
+                    <RowDefinition Height="101"/>
+                    <RowDefinition Height="101"/>
+                </Grid.RowDefinitions>
+
+                <!-- adding the helmet images -->
+                <Image Grid.Column="0" Grid.Row="0" Source="Assets/empty.png" Margin="10,21,23,10" x:Name="h36"/>
+                <Image Grid.Column="0" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h25"/>
+                <Image Grid.Column="0" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h24"/>
+                <Image Grid.Column="0" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h13"/>
+                <Image Grid.Column="0" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h12"/>
+                <Image Grid.Column="0" Grid.Row="5" Source="Assets/helmet.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h1"/>
+
+                <Image Grid.Column="1" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h35"/>
+                <Image Grid.Column="1" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h26"/>
+                <Image Grid.Column="1" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h23"/>
+                <Image Grid.Column="1" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h14"/>
+                <Image Grid.Column="1" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h11"/>
+                <Image Grid.Column="1" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h2"/>
+
+                <Image Grid.Column="2" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h34"/>
+                <Image Grid.Column="2" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h27"/>
+                <Image Grid.Column="2" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h22"/>
+                <Image Grid.Column="2" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h15"/>
+                <Image Grid.Column="2" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h10"/>
+                <Image Grid.Column="2" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h3"/>
+
+                <Image Grid.Column="3" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h33"/>
+                <Image Grid.Column="3" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h28"/>
+                <Image Grid.Column="3" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h21"/>
+                <Image Grid.Column="3" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h16"/>
+                <Image Grid.Column="3" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h9"/>
+                <Image Grid.Column="3" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h4"/>
+
+                <Image Grid.Column="4" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h32"/>
+                <Image Grid.Column="4" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h29"/>
+                <Image Grid.Column="4" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h20"/>
+                <Image Grid.Column="4" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h17"/>
+                <Image Grid.Column="4" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h8"/>
+                <Image Grid.Column="4" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h5"/>
+
+                <Image Grid.Column="5" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h31"/>
+                <Image Grid.Column="5" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h30"/>
+                <Image Grid.Column="5" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h19"/>
+                <Image Grid.Column="5" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h18"/>
+                <Image Grid.Column="5" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h7"/>
+                <Image Grid.Column="5" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h6"/>
+            
+
+                <!-- adding the basketball images -->
+                <Image Grid.Column="0" Grid.Row="0" Source="Assets/empty.png" Margin="10,21,23,10" x:Name="b36"/>
+                <Image Grid.Column="0" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b25"/>
+                <Image Grid.Column="0" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b24"/>
+                <Image Grid.Column="0" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b13"/>
+                <Image Grid.Column="0" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b12"/>
+                <Image Grid.Column="0" Grid.Row="5" Source="Assets/basketball.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b1"/>
+
+                <Image Grid.Column="1" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b35"/>
+                <Image Grid.Column="1" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b26"/>
+                <Image Grid.Column="1" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b23"/>
+                <Image Grid.Column="1" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b14"/>
+                <Image Grid.Column="1" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b11"/>
+                <Image Grid.Column="1" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b2"/>
+
+                <Image Grid.Column="2" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b34"/>
+                <Image Grid.Column="2" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b27"/>
+                <Image Grid.Column="2" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b22"/>
+                <Image Grid.Column="2" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b15"/>
+                <Image Grid.Column="2" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b10"/>
+                <Image Grid.Column="2" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b3"/>
+
+                <Image Grid.Column="3" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b33"/>
+                <Image Grid.Column="3" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b28"/>
+                <Image Grid.Column="3" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b21"/>
+                <Image Grid.Column="3" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b16"/>
+                <Image Grid.Column="3" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b9"/>
+                <Image Grid.Column="3" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b4"/>
+
+                <Image Grid.Column="4" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b32"/>
+                <Image Grid.Column="4" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b29"/>
+                <Image Grid.Column="4" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b20"/>
+                <Image Grid.Column="4" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b17"/>
+                <Image Grid.Column="4" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b8"/>
+                <Image Grid.Column="4" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b5"/>
+
+                <Image Grid.Column="5" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b31"/>
+                <Image Grid.Column="5" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b30"/>
+                <Image Grid.Column="5" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b19"/>
+                <Image Grid.Column="5" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b18"/>
+                <Image Grid.Column="5" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b7"/>
+                <Image Grid.Column="5" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b6"/>
+            
+                        
+            </Grid>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="Player 1" FontSize="30" TextAlignment="Center" Name="PlayerNum"/>
+
+                <Image Source="Assets/dice1.png" Grid.Row="1" Height="50" Name="dice1"/>
+                <Image Source="Assets/dice2.png" Grid.Row="2" Height="50" Name="dice2"/>
+                <Image Source="Assets/dice3.png" Grid.Row="3" Height="50" Name="dice3"/>
+                <Image Source="Assets/dice4.png" Grid.Row="4" Height="50" Name="dice4"/>
+                <Image Source="Assets/dice5.png" Grid.Row="5" Height="50" Name="dice5"/>
+                <Image Source="Assets/dice6.png" Grid.Row="6" Height="50" Name="dice6"/>
+
+                <Button Grid.Row ="7" Content="start" Name="start" Click="start_Click" FontSize="30"/>
+
+
+            </Grid>
+
+        </StackPanel>
         
     </Grid>
 </Window>
