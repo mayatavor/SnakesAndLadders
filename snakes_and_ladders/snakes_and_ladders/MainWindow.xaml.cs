@@ -78,7 +78,11 @@ namespace snakes_and_ladders
                 
                 this.is_player_1 = !this.is_player_1;
             }
-
+            MessageBoxResult result;
+            if (this.player1_place == 36)
+                result = MessageBox.Show("Player number 1 has won!!", "Game Over", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            else
+                result = MessageBox.Show("Player number 2 has won!!", "Game Over", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
 
         public async Task RollDiceAsync()
