@@ -57,32 +57,27 @@ namespace snakes_and_ladders
 
             this.player1_place = 0;
             this.player2_place = 0;
-
-
         }
-        public void StartGame()
+        public async Task StartGameAsync()
         {
+            int place_in_special = -1;
             while(!this.have_won)
             {
-                RollDiceAsync();
+                await RollDiceAsync();
+                
+                await WalkCharacterAsync(this.is_player_1);
 
-                if(this.is_player_1)
-                {
+                place_in_special = NeedClimbOrSlide(this.is_player_1);
 
-                }
-
-
-
+                if (place_in_special != -1)
+                    await ClimbOrSlideCharacterAsync(is_player_1, place_in_special);
 
 
                 if (this.player1_place == 36 || this.player2_place == 36)
                     this.have_won = true;
+                
+                this.is_player_1 = !this.is_player_1;
             }
-
-
-
-
-
 
         }
 
@@ -236,7 +231,6 @@ namespace snakes_and_ladders
             return bitmapImage;
         }
 
-
         public async Task WalkCharacterAsync(bool player1)
         {
             int now = this.player1_place;
@@ -262,6 +256,12 @@ namespace snakes_and_ladders
                 n = (Image)this.Images.FindName(img_id);
 
                 n.Source = character;
+                if(i == 36)
+                {
+                    this.have_won = true;
+                    return;
+                }    
+
                 await Task.Delay(250);
                 n.Source = empty;
             }
@@ -313,6 +313,7 @@ namespace snakes_and_ladders
             string img_id = "h" + this.player1_place.ToString();
             BitmapImage character = GetImage("Assets/helmet.png");
             BitmapImage empty = GetImage("Assets/empty.png");
+            int new_place = this.special[place].m_to_id;
             if (!player1)
             {
                 now = this.player2_place;
@@ -330,8 +331,8 @@ namespace snakes_and_ladders
                 n.Source = character;
                 await Task.Delay(150);
             } // blinking
+            n.Source = empty;
 
-            int new_place = this.special[place].m_to_id;
 
             img_id = starting + new_place.ToString();
             n = (Image)this.Images.FindName(img_id);
@@ -343,16 +344,26 @@ namespace snakes_and_ladders
                 n.Source = character;
                 await Task.Delay(150);
             } // blinking
+
+
+            if(!player1)
+                this.player2_place = new_place;
+            else
+                this.player1_place = new_place;
         }
 
         private async void start_Click(object sender, RoutedEventArgs e)
         {
             this.start.IsEnabled = false;
+            /*
             await RollDiceAsync();
             await WalkCharacterAsync(this.is_player_1);
-            this.start.IsEnabled = true;
             this.is_player_1 = !this.is_player_1;
-            
+            */
+
+            await StartGameAsync();
+
+            this.start.IsEnabled = true;
             //await ClimbOrSlideCharacterAsync(true, 0);
         }
     }
