@@ -55,8 +55,8 @@ namespace snakes_and_ladders
             this.have_won = false;
             this.is_player_1 = true;
 
-            this.player1_place = 1;
-            this.player2_place = 1;
+            this.player1_place = 0;
+            this.player2_place = 0;
 
 
         }
@@ -88,7 +88,7 @@ namespace snakes_and_ladders
 
         public async Task RollDiceAsync()
         {
-            int new_num = rand.Next(1, 7);
+            int new_num = rand.Next(2, 7); // needs fixing
             int now = this.dice_num_now;
             int time_until_change = 150;
             int i = 0;
@@ -256,7 +256,7 @@ namespace snakes_and_ladders
             n.Source = empty;
 
 
-            for (int i = now + 1; i < this.dice_num_now + now; i++)
+            for (int i = now + 1; i < this.dice_num_now + now + 1; i++)
             {
                 img_id = starting + i.ToString();
                 n = (Image)this.Images.FindName(img_id);
@@ -282,6 +282,11 @@ namespace snakes_and_ladders
                 else
                     this.player2_place += this.dice_num_now;
             }
+
+        }
+
+        public async Task ClimbOrSlideCharacterAsync(bool player1)
+        {
 
         }
 

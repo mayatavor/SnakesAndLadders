@@ -42,7 +42,7 @@
                 <Image Grid.Column="0" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h24"/>
                 <Image Grid.Column="0" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h13"/>
                 <Image Grid.Column="0" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h12"/>
-                <Image Grid.Column="0" Grid.Row="5" Source="Assets/helmet.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h1"/>
+                <Image Grid.Column="0" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h1"/>
 
                 <Image Grid.Column="1" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h35"/>
                 <Image Grid.Column="1" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,51,10" x:Name="h26"/>
@@ -86,7 +86,7 @@
                 <Image Grid.Column="0" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b24"/>
                 <Image Grid.Column="0" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b13"/>
                 <Image Grid.Column="0" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b12"/>
-                <Image Grid.Column="0" Grid.Row="5" Source="Assets/basketball.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b1"/>
+                <Image Grid.Column="0" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b1"/>
 
                 <Image Grid.Column="1" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b35"/>
                 <Image Grid.Column="1" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b26"/>
@@ -150,7 +150,20 @@
                 <Image Source="Assets/dice5.png" Grid.Row="5" Height="50" Name="dice5"/>
                 <Image Source="Assets/dice6.png" Grid.Row="6" Height="50" Name="dice6"/>
 
-                <Button Grid.Row ="7" Content="start" Name="start" Click="start_Click" FontSize="30"/>
+
+                <Grid Grid.Row ="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Source="Assets/basketball.png" Width="70" Height="70" x:Name="b0"/>
+                    <Image Grid.Column="1" Source="Assets/helmet.png" Width="70" Height="70" x:Name="h0"/>
+                    <Button Grid.Column="2" Content="start" Name="start" Click="start_Click" FontSize="30"/>
+                    
+                </Grid>
+                
 
 
             </Grid>
