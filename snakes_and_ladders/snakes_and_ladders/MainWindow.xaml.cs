@@ -285,17 +285,75 @@ namespace snakes_and_ladders
 
         }
 
-        public async Task ClimbOrSlideCharacterAsync(bool player1)
-        {
 
+        public int NeedClimbOrSlide(bool player1)
+        {
+            int place = this.player1_place;
+            if (!player1)
+                place = this.player2_place;
+                
+            for (int i = 0; i < 6; i++)
+            {
+                if (this.special_numbers[i] == place)
+                    return i;
+            }
+
+            return -1;
         }
 
 
+        /*
+         * this function gets the player (true for player number 1 and false for player number 2) and the number of the slide/ladder in the array
+         * this function will move the player gotten to the needed place
+         */
+        public async Task ClimbOrSlideCharacterAsync(bool player1, int place)
+        {
+            int now = this.player1_place;
+            string starting = "h";
+            string img_id = "h" + this.player1_place.ToString();
+            BitmapImage character = GetImage("Assets/helmet.png");
+            BitmapImage empty = GetImage("Assets/empty.png");
+            if (!player1)
+            {
+                now = this.player2_place;
+                img_id = "b" + this.player2_place.ToString();
+                starting = "b";
+                character = GetImage("Assets/basketball.png");
+            }
+
+            Image n = (Image)this.Images.FindName(img_id);
+
+            for (int i = 0; i < 3; i++)
+            {
+                n.Source = empty;
+                await Task.Delay(150);
+                n.Source = character;
+                await Task.Delay(150);
+            } // blinking
+
+            int new_place = this.special[place].m_to_id;
+
+            img_id = starting + new_place.ToString();
+            n = (Image)this.Images.FindName(img_id);
+
+            for (int i = 0; i < 3; i++)
+            {
+                n.Source = empty;
+                await Task.Delay(150);
+                n.Source = character;
+                await Task.Delay(150);
+            } // blinking
+        }
+
         private async void start_Click(object sender, RoutedEventArgs e)
         {
-            //this.start.IsEnabled = false;
+            this.start.IsEnabled = false;
             await RollDiceAsync();
-            await WalkCharacterAsync(true);
+            await WalkCharacterAsync(this.is_player_1);
+            this.start.IsEnabled = true;
+            this.is_player_1 = !this.is_player_1;
+            
+            //await ClimbOrSlideCharacterAsync(true, 0);
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:snakes_and_ladders"
         mc:Ignorable="d"
-        Title="GameWindow" Height="640" Width="850">
+        Title="GameWindow" Height="645" Width="850">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -104,14 +104,14 @@
 
                 <Image Grid.Column="3" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b33"/>
                 <Image Grid.Column="3" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b28"/>
-                <Image Grid.Column="3" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b21"/>
+                <Image Grid.Column="3" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="50,10,10,51" x:Name="b21"/>
                 <Image Grid.Column="3" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b16"/>
                 <Image Grid.Column="3" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b9"/>
                 <Image Grid.Column="3" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b4"/>
 
                 <Image Grid.Column="4" Grid.Row="0" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b32"/>
                 <Image Grid.Column="4" Grid.Row="1" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b29"/>
-                <Image Grid.Column="4" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b20"/>
+                <Image Grid.Column="4" Grid.Row="2" Source="Assets/empty.png" Height="40" Width="40" Margin="10,50,50,11" x:Name="b20"/>
                 <Image Grid.Column="4" Grid.Row="3" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b17"/>
                 <Image Grid.Column="4" Grid.Row="4" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b8"/>
                 <Image Grid.Column="4" Grid.Row="5" Source="Assets/empty.png" Height="40" Width="40" Margin="10,10,51,50" x:Name="b5"/>
@@ -155,13 +155,12 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Image Grid.Column="0" Source="Assets/basketball.png" Width="70" Height="70" x:Name="b0"/>
                     <Image Grid.Column="1" Source="Assets/helmet.png" Width="70" Height="70" x:Name="h0"/>
                     <Button Grid.Column="2" Content="start" Name="start" Click="start_Click" FontSize="30"/>
-                    
                 </Grid>
                 
 
